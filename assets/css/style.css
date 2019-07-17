@@ -1,3 +1,19 @@
 body{
     background-color: pink;
 }
+
+#pearl, #amethist, #garnet, #lapis, #opponent {
+    width: 150px;
+
+}
+
+#peridot{
+    width:123px;
+}
+
+#bismuth{
+    width: 187px;
+}
+#steven{
+    width:150px
+}

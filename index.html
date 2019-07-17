@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/game.js"> </script>  
+
+   
     <title>Document</title>
 </head>
 <body>
@@ -17,32 +17,54 @@
     </header>
 
     <section id="game-disctiption">
-        <p>Try to match this randomly selected number</p>
-        <p>There are four crystals to choose from. Each has a random value which will add to your score. </p>
-        <p>Try to get your score to match the value above.</p>
-        <p>Each play will start the game with new numbers</p>
-        <p>Git 5 to win</p>
+        <p>There are four main Crystal Gems to fight with.</p>
+        <p>Each is given a random value before each fight which will add to your total score. </p>
+        <p>To win you have to match your score to the hitpoints of the gem you are fighting .</p>
+        <P>if a battels not going well you can call for back up but beware you can only use these Gems so many times.</p>
+        <p>After each fight the numbers will be refeshed and everyone will have new numbers.</p>
+        <p>Git 10 wins to win the game and save the day.</p>
         <p>Good luck!</p>
     </section>
     <section id="random-num-area">
-        <p id="random-mun"></p>
+        
+        <img id="opponent" src="#" alt="opponent">
+
+        <p id="random-num"></p>
+        
     </section>
     <section id="w-l-area">
         <p id="win">Wins: 0</p>
         <p id="loss">Losses: 0</p>
     </section>
-    <section id="crystals">
-        <img id="red" src = "#" height="#" width="#" alt="This is an Image of somthing impotant.">
-        <img id="blue" src = "#" height="#" width="#" alt="This is an Image of somthing impotant.">
-        <img id="yellow" src = "#" height="#" width="#" alt="This is an Image of somthing impotant.">
-        <img id="green" src = "#" height="#" width="#" alt="This is an Image of somthing impotant.">
+    <section id="crystals-gems">
+        <p id="crystal-gems-header">The Crystal Gems!</p>
+        <img id="amethist" src = "assets/imges/amethist.png"  alt="amethist">
+        <img id="pearl" src = "assets/imges/pearl.png" alt="pearl">
+        <img id="garnet" src = "assets/imges/garnet.png"  alt="garnet">
+        <img id="steven" src = "assets/imges/Steven.png" alt="Steven">   
     </section>
+    <section id="backup">
+        <p id="backup-header">Call for back up!</p>
+        <p>These gems will delete a random number from you total score.</p>
+        <P>Watch out though they can only be called so many times before you can't use them any more.</P> 
+        <img id="peridot" src = "assets/imges/Peridot.png" alt="Peridot">
+        <img id="lapis" src = "assets/imges/lapis.png"  alt="lapis">
+        <img id="lion" src = "assets/imges/lapis.png"  alt="lion">
+    </section>
+    <section id="big-guns">
+        <img id="bismuth" src = "assets/imges/Bismuth.png" alt="Bismuth">
+        <img id="spacePirates" src = "assets/imges/lars-and-crew.png" alt="space Pirates!">
+    </section>
+
     <section id="score-area">
         <p>Your total score is:</p>
         <p id="score">0</p>
+        <
     </section>
 
     
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script type="text/javascript" src="assets/javascript/game.js"> </script>  
     
 </body>
 </html>
