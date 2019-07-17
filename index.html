@@ -16,7 +16,8 @@
         <!-- It's not CrystalsCollector I'm not sure why but symanticly that bugs the hell out of me.  -->
     </header>
 
-    <section id="game-disctiption">
+    <section id="game-disctiption">        
+        <button id="start">Start the game!</button>
         <p>There are four main Crystal Gems to fight with.</p>
         <p>Each is given a random value before each fight which will add to your total score. </p>
         <p>To win you have to match your score to the hitpoints of the gem you are fighting .</p>
@@ -24,6 +25,7 @@
         <p>After each fight the numbers will be refeshed and everyone will have new numbers.</p>
         <p>Git 10 wins to win the game and save the day.</p>
         <p>Good luck!</p>
+
     </section>
     <section id="random-num-area">
         <p id="opponent-name"></p>
@@ -34,8 +36,10 @@
         
     </section>
     <section id="w-l-area">
-        <p id="win">Wins: 0</p>
-        <p id="loss">Losses: 0</p>
+        <p>Wins!</p>
+        <p id="win"></p>
+        <p>Losses!</p>
+        <p id="loss"></p>
     </section>
     <section id="crystals-gems">
         <p id="crystal-gems-header">The Crystal Gems!</p>
@@ -47,10 +51,19 @@
     <section id="backup">
         <p id="backup-header">Call for back up!</p>
         <p>These gems will delete a random number from you total score.</p>
-        <P>Watch out though they can only be called so many times before you can't use them any more.</P> 
-        <img id="peridot" src = "assets/imges/Peridot.png" alt="Peridot">
-        <img id="lapis" src = "assets/imges/lapis.png"  alt="lapis">
-        <img id="lion" src = "assets/imges/Lion.png"  alt="lion">
+        <P>Watch out though they can only be called so many times before you can't use them any more.</P>
+        <section id="">
+            <img id="peridot" src = "assets/imges/Peridot.png" alt="Peridot">
+            <p id="peridot-count"></p>
+        </section>
+        <section id="">
+            <img id="lapis" src = "assets/imges/lapis.png"  alt="lapis">
+            <p id="lapis-count"></p>
+        </section>
+        <section id="">
+            <img id="lion" src = "assets/imges/Lion.png"  alt="lion">
+            <p id="lion-count"></p>
+        </section>
     </section>
     <section id="big-guns">
         <p id="big-guns-header">You big guns!</p>
@@ -61,13 +74,13 @@
 
     <section id="score-area">
         <p>Your total score is:</p>
-        <p id="score">0</p>
+        <p id="score"></p>
         <
     </section>
 
     
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <script type="text/javascript" src="assets/javascript/game.js"> </script>  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/game.js"> </script>  
     
 </body>
 </html>
