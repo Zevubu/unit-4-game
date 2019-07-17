@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+ 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/game.js"> </script>  
+    
    
     <title>Document</title>
 </head>
@@ -29,11 +32,17 @@
     </section>
     <section id="random-num-area">
         <p id="opponent-name"></p>
-        
-        <img id="opponent-img" src="#" alt="opponent">
-
-        <p id="random-num"></p>
-        
+        <section>
+            <img id="opponent-img" src="#" alt="opponent">
+        </section>
+        <section>
+            <p>opponents score to match is:</p>
+            <span id="random-num"></span>
+        </section>
+    </section>
+    <section id="score-area">
+        <p>Your total score is:</p>
+        <span id="score"></span>
     </section>
     <section id="w-l-area">
         <p>Wins!</p>
@@ -43,7 +52,7 @@
     </section>
     <section id="crystals-gems">
         <p id="crystal-gems-header">The Crystal Gems!</p>
-        <img id="amethist" src = "assets/imges/amethist.png"  alt="amethist">
+        <button><img id="amethist" src = "assets/imges/amethist.png"  alt="amethist"></button>
         <img id="pearl" src = "assets/imges/pearl.png" alt="pearl">
         <img id="garnet" src = "assets/imges/garnet.png"  alt="garnet">
         <img id="steven" src = "assets/imges/Steven.png" alt="Steven">   
@@ -72,15 +81,7 @@
         <img id="spacePirates" src = "assets/imges/lars-and-crew.png" alt="space Pirates!">
     </section>
 
-    <section id="score-area">
-        <p>Your total score is:</p>
-        <p id="score"></p>
-        <
-    </section>
 
-    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/game.js"> </script>  
-    
+   
 </body>
 </html>

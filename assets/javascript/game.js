@@ -9,97 +9,187 @@ $(function(){
 
 
 
-
     
-
-    
-   let numberToHit;
+   
+   let numberToHit = 0;
    let score = 0;
    let wins = 0;
    let losses = 0;
-   let lapisCount = 3;
-   let peridotCount = 3;
-   let lionCount = 3;
+   let lapisCount = 2;
+   let peridotCount = 2;
+   let lionCount = 2;
+
+   // let pearlNum;
+   // let garnetNum;
+   // let amethistNum;
+   // let stevenNum;
+   // let lapisNum;
+   // let peridotNum;
+   // let lionNum;
    // score wins losses
 
-   $("#random-num").text(numberToHit);
-   $("#score").text(score);
+   
+  
+
+   let characterValueRandom;
+   let characterValue=[];
+  
+
+  
+
+    
+
+  let initailizeGame = function(){
+      score = 0;
+      lapisCount = 2;
+      peridotCount = 2;
+      lionCount = 2
+      
+      numberToHit = Math.floor(Math.random() * 120) + 19;
+      console.log(`Number to hit is:${numberToHit}`);
+      $("#random-num").text(numberToHit);
+     
+
+      for(let i = 0; i < 7; i++){
+         characterValueRandom = Math.floor(Math.random() *12)+ 1;
+         characterValue.push(characterValueRandom);
+         console.log(` cr ${characterValueRandom}`)
+      };;
+      console.log(`cva${characterValue}`);
+      // return numberToHit, characterValue;
+      $("#pearl").attr("gem-value", characterValue[0]); 
+      $("#garnet").attr("gem-value", characterValue[1]);  
+      $("#amethist").attr("gem-value", characterValue[2]);
+      $("#steven").attr("gem-value", characterValue[3]);
+      $("#lapis").attr("gem-value", characterValue[4]); 
+      $("#peridot").attr("gem-value", characterValue[5]);
+      $("#lion").attr("gem-value", characterValue[6]);
+      
+      // create random number 19-120
+      // asign random number to crystal gems 1-12
+      // asign random number to backup gems -1 through - 6
+   };
+
+
+
+   // pearlNum = characterValue[0];
+   // console.log(`pearl ${pearlNum}`);
+   // garnetNum = characterValue[1];
+   // console.log(`garnet is ${garnetNum}`);
+   // amethistNum = characterValue[2];
+   // console.log(`amethist is ${amethistNum}`);
+   // stevenNum = characterValue[3];
+   // console.log(` steven is ${stevenNum}`);
+   // lapisNum = characterValue[4];
+   // console.log(`lapis is ${lapisNum}`);
+   // peridotNum = characterValue[5];
+   // console.log(`peridot is ${peridotNum}`);
+   // lionNum = characterValue[6];
+   // console.log(`Lion is ${lionNum}`);
+
+  
+   
+    
+
+   
+   $("#start").on("click", function(){
+      initailizeGame();
+
+   });
+    
+    
+   $("#amethist").on("click", function(){
+      let gemValue = ($(this).attr("gem-value")); 
+      gemValue = parseInt(gemValue);
+      score += gemValue;
+      console.log(score);
+      $("#score").text(score);
+      winchecker();
+
+   });
+    
+   
+   $("#pearl").on("click", function(){
+     let gemValue = ($(this).attr("gem-value")); 
+      gemValue = parseInt(gemValue);
+      score += gemValue;
+      console.log(score);
+      $("#score").text(score);
+      winchecker();
+
+   });
+   $("#garnet").on("click", function(){
+      let gemValue = ($(this).attr("gem-value")); 
+      gemValue = parseInt(gemValue);
+      score += gemValue;
+      console.log(score);
+      $("#score").text(score);
+      winchecker();
+
+   });
+   $("#steven").on("click", function(){
+      let gemValue = ($(this).attr("gem-value")); 
+      gemValue = parseInt(gemValue);
+      score += gemValue;
+      console.log(score);
+      $("#score").text(score);
+      winchecker();
+   });
+
+   // back up
+   $("#lapis").on("click", function(){
+      let gemValue = ($(this).attr("gem-value")); 
+       gemValue = parseInt(gemValue);
+       score -= gemValue;
+       console.log(score);
+       $("#score").text(score);
+       winchecker();
+ 
+    });
+    $("#peridot").on("click", function(){
+       let gemValue = ($(this).attr("gem-value")); 
+       gemValue = parseInt(gemValue);
+       score -= gemValue;
+       console.log(score);
+       $("#score").text(score);
+       winchecker();
+    });
+    $("#lion").on("click", function(){
+       let gemValue = ($(this).attr("gem-value")); 
+       gemValue = parseInt(gemValue);
+       score -= gemValue;
+       console.log(score);
+       $("#score").text(score);
+      winchecker();
+    });
+    let winchecker = function(){
+      if(wins >= 10)
+      {
+         alert("You won the game!")
+
+      }
+      else if (losses >= 5 ){
+         alert("You lost the game!")
+      }
+      else if(score === numberToHit){
+         wins++;
+         $("#win").text(wins);
+         initailizeGame();
+      }
+      else if(score > numberToHit){
+         losses++;
+         $("#loss").text(losses);
+         initailizeGame();
+
+      };
+    };
+   
+ 
    $("#win").text(wins);
    $("#loss").text(losses);
    $("#peridot-count").text(`uses left:${peridotCount}`);
    $("#lapis-count").text(`uses left:${lapisCount}`);
    $("#lion-count").text(`uses left: ${lionCount}`);
-
-   let characterValueRandom;
-   let characterValue=[];
-   let pearlNum = 0;
-   let garnetNum = 0;
-   let amethistNum = 0;
-   let stevenNum = 0;
-   let lapisNum = 0;
-   let peridotNum = 0;
-   let lionNum = 0;
-
-   
-    
-
-    
-
-    
-
-   initailizeGame = ()=>{
-      score = 0;
-      numberToHit = Math.floor(Math.random() * 120) + 19;
-      console.log(`Number to hit is:${numberToHit}`);
-      for(let i = 0; i < 7; i++){
-         characterValueRandom = Math.floor(Math.random() *12)+ 1;
-         characterValue.push(characterValueRandom);
-         console.log(` cr ${characterValueRandom}`)
-      };
-      console.log(`cva${characterValue}`)
-      pearlNum = characterValue[0];
-      garnetNum = characterValue[1];
-      amethistNum = characterValue[2];
-      stevenNum = characterValue[3];
-      lapisNum = characterValue[4];
-      peridotNum = characterValue[5];
-      lionNum = characterValue[6];
-
-      // create random number 19-120
-      // asign random number to crystal gems 1-12
-      // asign random number to backup gems -1 through - 6
-   };
-   $("start").on("click", function(){
-      initailizeGame;
-       
-
-   });
-    
-    
-   $("amethist").on("click", function(){
-      score = score + amethistNum;
-       
-
-   });
-    
-   
-   $("pearl").on("click", function(){
-      score = score + pearlNum;
-
-
-   });
-   $("garnet").on("click", function(){
-      score = score + garnetNum;
-       
-
-   });
-   $("steven").on("click", function(){
-      score = score + stevenNum;
-       
-
-   });
-    
-    
     
     // limit use of backup to 3 each
     // asign big guns to apply the exact amount missing to score.
@@ -114,6 +204,6 @@ $(function(){
     // check for win/ loss
     // if wins = 5 win game
 
-})
+});
    
 
