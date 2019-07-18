@@ -2,18 +2,18 @@ body{
     background-color: pink;
 }
 
-#pearl, #amethist, #garnet, #lapis, #opponent, #spacePirates {
-    width: 150px;
+#pearl, #amethist, #garnet, #lapis,#steven, #opponent, #space-pirates {
+    /* width: 150px; */
+    width: 100px;
 
 }
 
 #peridot{
-    width:123px;
+    /* width:123px; */
+    width: 75px;
 }
 
 #bismuth, #lion{
-    width: 187px;
-}
-#steven{
-    width:150px
+    /* width: 187px; */
+    width: 125px;
 }
