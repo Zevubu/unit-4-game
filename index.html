@@ -15,18 +15,19 @@
 </head>
 <body>
     <header>
-        <p>Crystal Collector!</p>
-        <!-- It's not CrystalsCollector I'm not sure why but symanticly that bugs the hell out of me.  -->
+        <p>The Crystal Gems!</p>
+        <p id="and-steven">...and Steven!</p>
+     
     </header>
 
     <section id="game-discription">        
         
         <p>There are four main Crystal Gems to fight with.</p>
-        <p>Each is given a random value before each fight which will add to your total score. </p>
-        <p>To win you have to match your score to the hitpoints of the gem you are fighting .</p>
+        <p>Each is given a random value at the begining of each battle, which will add to your total score. </p>
+        <p>To win you have to match your score to your opponents score. If you go over even by 1 you loss the battle.</p>
         <P>if a battels not going well you can call for back up but beware you can only use these Gems so many times.</p>
         <p>After each fight the numbers will be refeshed and everyone will have new numbers.</p>
-        <p>Git 10 wins to win the game and save the day.</p>
+        <p>Get 10 wins to win the game and save the day.</p>
         <p>Good luck!</p>
         <button id="start">Start the game!</button>
     </section>
@@ -38,14 +39,15 @@
         </section>
     </section>
     <section id="score-area">
-        
         <span id="score"></span>
     </section>
     <section id="w-l-area">
-        <p>Wins!</p>
-        <p id="win"></p>
-        <p>Losses!</p>
-        <p id="loss"></p>
+        <section id="win-section">
+            <p id="win"></p>
+        </section>
+        <section id="loss-section">
+            <p id="loss"></p>
+        </section>
     </section>
 
     <section id="crystal-gems">

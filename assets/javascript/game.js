@@ -39,13 +39,18 @@ $(function(){
       let lapisCount = 2;
       let peridotCount = 2;
       let lionCount = 2;
+      let currentOpponent;
       let opponentImgs = [];
       let opponentName = [];
       let opponentNum;
-     
-      $("#opponent-score").prepend("<p>opponents score to match is:</p>");
+      let opponentsUsed = [];
+      
+      $("#random-num-area").prepend("<p>Watch out! Your fighting...")
+      $("#opponent-score").prepend("<p>Your opponents score is...</p>");
+      $("#opponent-score").append("<p>Match it to beat them!:</p>");
       $("#score-area").prepend("<p>Your total score is:</p>");
-      $()
+      $("#win-section").prepend("<p>Wins!</p>");
+      $("#loss-section").prepend("<p>Losses!</p>");
       // call the gems.
       $("#crystal-gems").prepend("<p id='crystal-gems-header'>The Crystal Gems!</p>");
       $("#crystal-gems-imgs").append("<img id='amethist' src = 'assets/imges/amethist.png'  alt='amethist'>");
@@ -61,13 +66,18 @@ $(function(){
       $("#lion-section").prepend("<img id='lion' src = 'assets/imges/Lion.png'  alt='lion'>");
       // call big guns
       $("#big-guns-text").append("<p id='big-guns-header'>You big guns!</p>");
-      $("#big-guns-text").append("<p>Take your opponent out with one strike! Each can only be used once each game.</p>");
+      $("#big-guns-text").append("<p>Take your opponent out with one strike! Each can only be used once for the whole game.</p>");
       $("#big-guns-imgs").append("<img id='bismuth' src = 'assets/imges/Bismuth.png' alt='Bismuth'>");
       $("#big-guns-imgs").append("<img id='space-pirates' src = 'assets/imges/lars-and-crew.png' alt='Space Pirates!'>");
 
       let characterValueRandom;
       let characterValue=[];
-   
+            
+   let opponentaddlist = function(){
+      if(opponentsUsed.indexOf(currentOpponent) > -1){
+         initailizeGame();
+      };
+   };
 
    let initailizeGame = function(){
          score = 0;
@@ -87,15 +97,18 @@ $(function(){
          opponentImgs = [
             "<img id='opponent-img' src='assets/imges/Jasper.png' alt='opponent'></img>", 
             "<img id='opponent-img' src='assets/imges/Emerald.png' alt='opponent'>", 
-            "<img id='opponent-img' src='assets/imges/Topaz.png' alt='opponent'>", 
             "<img id='opponent-img' src='assets/imges/Yellow.png' alt='opponent'>",
-            "<img id='opponent-img' src='assets/imges/locknessblog.png' alt='opponent'>"
+            "<img id='opponent-img' src='assets/imges/locknessblog.png' alt='opponent'>",
+            "<img id='opponent-img' src='assets/imges/Aquamarine.png' alt='opponent'></img>"
          ]
-         opponentName =["Jasper", "Emerald", "Topaz", "Yellow Diamond", "The Loch Ness Bloggster"]
+         opponentName =["Jasper!", "Emerald!", "Yellow Diamond!", "The Loch Ness Bloggster!","Aquamarine!"];
+         
          opponentNum = Math.floor(Math.random()*5);
+         currentOpponent = opponentName.opponentNum;
+         opponentaddlist();
+         
          $("#opponent-name").html(opponentName[opponentNum]);
          $("#opponent-img-section").html(opponentImgs[opponentNum]);
-         
          
          // create random number 19-120
          numberToHit = Math.floor(Math.random() * 120) + 19;
@@ -108,7 +121,7 @@ $(function(){
          for(let i = 0; i < 7; i++){
             characterValueRandom = Math.floor(Math.random() *12)+ 1;
             characterValue.push(characterValueRandom);
-            console.log(` cr ${characterValueRandom}`)
+            console.log(` cr ${characterValueRandom}`);
          };
          console.log(`cva${characterValue}`);
          // return, characterValue;
@@ -120,6 +133,9 @@ $(function(){
          $("#peridot").attr("gem-value", characterValue[5]);
          $("#lion").attr("gem-value", characterValue[6]);
       };
+      initailizeGame();
+
+      
 
 
 
@@ -139,7 +155,7 @@ $(function(){
       // console.log(`Lion is ${lionNum}`);
 
    
-      initailizeGame();
+     
       
 
 
@@ -263,11 +279,13 @@ $(function(){
             alert("You lost the game!")
          }
          else if(score === numberToHit){
+            opponentsUsed.push(currentOpponent);
             wins++;
             $("#win").text(wins);
             initailizeGame();
          }
          else if(score > numberToHit){
+            opponentsUsed.push(currentOpponent);
             losses++;
             $("#loss").text(losses);
             initailizeGame();
