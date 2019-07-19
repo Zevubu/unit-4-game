@@ -2,7 +2,7 @@ body{
     background-color: pink;
 }
 
-#pearl, #amethist, #garnet, #lapis,#steven, #opponent, #space-pirates {
+#pearl, #amethist, #garnet, #lapis,#steven, #opponent, #space-pirates{
     /* width: 150px; */
     width: 100px;
 
@@ -13,7 +13,7 @@ body{
     width: 75px;
 }
 
-#bismuth, #lion{
+#bismuth, #lion, #opponent-img{
     /* width: 187px; */
     width: 125px;
 }

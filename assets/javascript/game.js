@@ -8,7 +8,7 @@ $(function(){
 
 
 
-
+   let gemsOnscreen = false;
    let bismuth = false;
    let spacePirates = false;
    let gameStart = false;
@@ -16,9 +16,8 @@ $(function(){
    let score = 0;
    let wins = 0;
    let losses = 0;
-   let lapisCount = 2;
-   let peridotCount = 2;
-   let lionCount = 2;
+   
+
 
    // let pearlNum;
    // let garnetNum;
@@ -29,223 +28,270 @@ $(function(){
    // let lionNum;
    // score wins losses
 
-   
-  
-
-   let characterValueRandom;
-   let characterValue=[];
-  
-
-  
-
-    
-
-  let initailizeGame = function(){
-      score = 0;
-      characterValue. length = 0;
-      $("#score").text(score);
-      lapisCount = 2;
-      peridotCount = 2;
-      lionCount = 2
-
-      $("#peridot-count").text(`uses left:${peridotCount}`);
-      $("#lapis-count").text(`uses left:${lapisCount}`);
-      $("#lion-count").text(`uses left: ${lionCount}`);
-      numberToHit = Math.floor(Math.random() * 120) + 19;
-      console.log(`Number to hit is:${numberToHit}`);
-      $("#random-num").text(numberToHit);
-     
-
-      for(let i = 0; i < 7; i++){
-         characterValueRandom = Math.floor(Math.random() *12)+ 1;
-         characterValue.push(characterValueRandom);
-         console.log(` cr ${characterValueRandom}`)
-      };;
-      console.log(`cva${characterValue}`);
-      // return numberToHit, characterValue;
-      $("#pearl").attr("gem-value", characterValue[0]); 
-      $("#garnet").attr("gem-value", characterValue[1]);  
-      $("#amethist").attr("gem-value", characterValue[2]);
-      $("#steven").attr("gem-value", characterValue[3]);
-      $("#lapis").attr("gem-value", characterValue[4]); 
-      $("#peridot").attr("gem-value", characterValue[5]);
-      $("#lion").attr("gem-value", characterValue[6]);
-      
-      // create random number 19-120
-      // asign random number to crystal gems 1-12
-      // asign random number to backup gems -1 through - 6
-   };
-
-
-
-   // pearlNum = characterValue[0];
-   // console.log(`pearl ${pearlNum}`);
-   // garnetNum = characterValue[1];
-   // console.log(`garnet is ${garnetNum}`);
-   // amethistNum = characterValue[2];
-   // console.log(`amethist is ${amethistNum}`);
-   // stevenNum = characterValue[3];
-   // console.log(` steven is ${stevenNum}`);
-   // lapisNum = characterValue[4];
-   // console.log(`lapis is ${lapisNum}`);
-   // peridotNum = characterValue[5];
-   // console.log(`peridot is ${peridotNum}`);
-   // lionNum = characterValue[6];
-   // console.log(`Lion is ${lionNum}`);
-
-  
-   
-    
-
-   
+       
    $("#start").on("click", function(){
-      initailizeGame();
+      $("#game-discription").hide();
+      gemsOnscreen = true
       gameStart = true;
       bismuth = true;
       spacePirates = true;
+      
+      let lapisCount = 2;
+      let peridotCount = 2;
+      let lionCount = 2;
+      let opponentImgs = [];
+      let opponentName = [];
+      let opponentNum;
+     
+      $("#opponent-score").prepend("<p>opponents score to match is:</p>");
+      $("#score-area").prepend("<p>Your total score is:</p>");
+      $()
+      // call the gems.
+      $("#crystal-gems").prepend("<p id='crystal-gems-header'>The Crystal Gems!</p>");
+      $("#crystal-gems-imgs").append("<img id='amethist' src = 'assets/imges/amethist.png'  alt='amethist'>");
+      $("#crystal-gems-imgs").append("<img id='pearl' src = 'assets/imges/pearl.png' alt='pearl'>");
+      $("#crystal-gems-imgs").append("<img id='garnet' src = 'assets/imges/garnet.png'  alt='garnet'>");
+      $("#crystal-gems-imgs").append("<img id='steven' src = 'assets/imges/Steven.png' alt='Steven'>");
+      //call back up
+      $("#backup-text").append("<p id='backup-header'>Call for back up!</p>");
+      $("#backup-text").append("<p>These gems will delete a random number from you total score.</p>");
+      $("#backup-text").append(" <p>Watch out though they can only be used 2 times per round.</p>");
+      $("#peridot-section").prepend("<img id='peridot' src = 'assets/imges/Peridot.png' alt='Peridot'>");
+      $("#lapis-section").prepend("<img id='lapis' src = 'assets/imges/lapis.png'  alt='lapis'>");
+      $("#lion-section").prepend("<img id='lion' src = 'assets/imges/Lion.png'  alt='lion'>");
+      // call big guns
+      $("#big-guns-text").append("<p id='big-guns-header'>You big guns!</p>");
+      $("#big-guns-text").append("<p>Take your opponent out with one strike! Each can only be used once each game.</p>");
+      $("#big-guns-imgs").append("<img id='bismuth' src = 'assets/imges/Bismuth.png' alt='Bismuth'>");
+      $("#big-guns-imgs").append("<img id='space-pirates' src = 'assets/imges/lars-and-crew.png' alt='Space Pirates!'>");
 
-   });
-    
-    
-   $("#amethist").on("click", function(){
-      if(gameStart){
-         let gemValue = ($(this).attr("gem-value")); 
-         gemValue = parseInt(gemValue);
-         score += gemValue;
-         console.log(score);
-         $("#score").text(score);
-         winchecker();
-      }
-   });
-    
+      let characterValueRandom;
+      let characterValue=[];
    
-   $("#pearl").on("click", function(){
-      if(gameStart){
-         let gemValue = ($(this).attr("gem-value")); 
-         gemValue = parseInt(gemValue);
-         score += gemValue;
-         console.log(score);
-         $("#score").text(score);
-         winchecker();
-      }
-      
-   });
-   $("#garnet").on("click", function(){
-      if(gameStart){
-         let gemValue = ($(this).attr("gem-value")); 
-         gemValue = parseInt(gemValue);
-         score += gemValue;
-         console.log(score);
-         $("#score").text(score);
-         winchecker();
-      }
-      
-   });
-   $("#steven").on("click", function(){
-      if(gameStart){
-         let gemValue = ($(this).attr("gem-value")); 
-         gemValue = parseInt(gemValue);
-         score += gemValue;
-         console.log(score);
-         $("#score").text(score);
-         winchecker();
-      }
-      
-   });
 
-   // back up
-   $("#lapis").on("click", function(){
-      if(gameStart && lapisCount > 0 && score > 0){
-         let gemValue = ($(this).attr("gem-value")); 
-         gemValue = parseInt(gemValue);
-         score -= gemValue;
-         lapisCount--;
-         $("#lapis-count").text(`uses left:${lapisCount}`)
-         console.log(score);
+   let initailizeGame = function(){
+         score = 0;
+         characterValue. length = 0;
          $("#score").text(score);
-         winchecker();
-      };
-    });
-    $("#peridot").on("click", function(){
-      if(gameStart && peridotCount > 0 && score > 0){
-         let gemValue = ($(this).attr("gem-value")); 
-         gemValue = parseInt(gemValue);
-         score -= gemValue;
-         peridotCount--;
+         lapisCount = 2;
+         peridotCount = 2;
+         lionCount = 2
+
          $("#peridot-count").text(`uses left:${peridotCount}`);
-         console.log(score);
-         $("#score").text(score);
-         winchecker();
-      }
-    });
-    $("#lion").on("click", function(){
-      if(gameStart && lionCount > 0 && score > 0){
-         let gemValue = ($(this).attr("gem-value")); 
-         gemValue = parseInt(gemValue);
-         score -= gemValue;
-         lionCount--;
+         $("#lapis-count").text(`uses left:${lapisCount}`);
          $("#lion-count").text(`uses left: ${lionCount}`);
-         console.log(`your score is${score}`);
-         $("#score").text(score);
-         winchecker();
+
+         $("#lapis-count").text(`uses left:${lapisCount}`);
+         $("#lapis-count").text(`uses left:${lapisCount}`);
+         // ramomize opponent img.
+         opponentImgs = [
+            "<img id='opponent-img' src='assets/imges/Jasper.png' alt='opponent'></img>", 
+            "<img id='opponent-img' src='assets/imges/Emerald.png' alt='opponent'>", 
+            "<img id='opponent-img' src='assets/imges/Topaz.png' alt='opponent'>", 
+            "<img id='opponent-img' src='assets/imges/Yellow.png' alt='opponent'>",
+            "<img id='opponent-img' src='assets/imges/locknessblog.png' alt='opponent'>"
+         ]
+         opponentName =["Jasper", "Emerald", "Topaz", "Yellow Diamond", "The Loch Ness Bloggster"]
+         opponentNum = Math.floor(Math.random()*5);
+         $("#opponent-name").html(opponentName[opponentNum]);
+         $("#opponent-img-section").html(opponentImgs[opponentNum]);
+         
+         
+         // create random number 19-120
+         numberToHit = Math.floor(Math.random() * 120) + 19;
+         console.log(`Number to hit is:${numberToHit}`);
+         $("#random-num").text(numberToHit);
+      //   if gems-onscreen = false add images and turn gems-onscreen to true
+
+
+         // asign random number to crystal gems 1-12
+         for(let i = 0; i < 7; i++){
+            characterValueRandom = Math.floor(Math.random() *12)+ 1;
+            characterValue.push(characterValueRandom);
+            console.log(` cr ${characterValueRandom}`)
+         };
+         console.log(`cva${characterValue}`);
+         // return, characterValue;
+         $("#pearl").attr("gem-value", characterValue[0]); 
+         $("#garnet").attr("gem-value", characterValue[1]);  
+         $("#amethist").attr("gem-value", characterValue[2]);
+         $("#steven").attr("gem-value", characterValue[3]);
+         $("#lapis").attr("gem-value", characterValue[4]); 
+         $("#peridot").attr("gem-value", characterValue[5]);
+         $("#lion").attr("gem-value", characterValue[6]);
       };
-    });
-    $("#bismuth").on("click", function(){
-       if(bismuth){
-         score = numberToHit;
-         bismuth = false;
-         winchecker();
-       }
 
-    });
-    $("#space-pirates").on("click", function(){
-      if(spacePirates){
-         score = numberToHit;
-         spacePirates = false;
-         winchecker();
-       }
 
-   });
 
-    let winchecker = function(){
-      if(wins >= 10)
-      {
-         alert("You won the game!")
+      // pearlNum = characterValue[0];
+      // console.log(`pearl ${pearlNum}`);
+      // garnetNum = characterValue[1];
+      // console.log(`garnet is ${garnetNum}`);
+      // amethistNum = characterValue[2];
+      // console.log(`amethist is ${amethistNum}`);
+      // stevenNum = characterValue[3];
+      // console.log(` steven is ${stevenNum}`);
+      // lapisNum = characterValue[4];
+      // console.log(`lapis is ${lapisNum}`);
+      // peridotNum = characterValue[5];
+      // console.log(`peridot is ${peridotNum}`);
+      // lionNum = characterValue[6];
+      // console.log(`Lion is ${lionNum}`);
 
-      }
-      else if (losses >= 10 ){
-         alert("You lost the game!")
-      }
-      else if(score === numberToHit){
-         wins++;
-         $("#win").text(wins);
-         initailizeGame();
-      }
-      else if(score > numberToHit){
-         losses++;
-         $("#loss").text(losses);
-         initailizeGame();
-      };
-    };
    
- 
-   $("#win").text(wins);
-   $("#loss").text(losses);
-
-    
-    // limit use of backup to 3 each
-    // asign big guns to apply the exact amount missing to score.
-    // limit big gun to 1 use each.
-    //
-    // on click select random number 
-    // look for win/ loss
+      initailizeGame();
+      
 
 
 
+      $("#amethist").on("click", function(){
+         if(gameStart){
+            let gemValue = ($(this).attr("gem-value")); 
+            gemValue = parseInt(gemValue);
+            score += gemValue;
+            console.log(score);
+            $("#score").text(score);
+            winchecker();
+         }
+      });
+      
+      
+      $("#pearl").on("click", function(){
+         if(gameStart){
+            let gemValue = ($(this).attr("gem-value")); 
+            gemValue = parseInt(gemValue);
+            score += gemValue;
+            console.log(score);
+            $("#score").text(score);
+            winchecker();
+         }
+         
+      });
+      $("#garnet").on("click", function(){
+         if(gameStart){
+            let gemValue = ($(this).attr("gem-value")); 
+            gemValue = parseInt(gemValue);
+            score += gemValue;
+            console.log(score);
+            $("#score").text(score);
+            winchecker();
+         }
+         
+      });
+      $("#steven").on("click", function(){
+         if(gameStart){
+            let gemValue = ($(this).attr("gem-value")); 
+            gemValue = parseInt(gemValue);
+            score += gemValue;
+            console.log(score);
+            $("#score").text(score);
+            winchecker();
+         }
+         
+      });
 
-    // check for win/ loss
-    // if wins = 5 win game
+      // back up
+      $("#lapis").on("click", function(){
+         if(gameStart && lapisCount > 0 && score > 0){
+            let gemValue = ($(this).attr("gem-value")); 
+            gemValue = parseInt(gemValue);
+            score -= gemValue;
+            if(score < 0){
+               score = 0;
+            };
+            lapisCount--;
+            $("#lapis-count").text(`uses left:${lapisCount}`)
+            console.log(score);
+            $("#score").text(score);
+            winchecker();
+         };
+      });
+      $("#peridot").on("click", function(){
+         if(gameStart && peridotCount > 0 && score > 0){
+            let gemValue = ($(this).attr("gem-value")); 
+            gemValue = parseInt(gemValue);
+            score -= gemValue;
+            if(score < 0){
+               score = 0;
+            };
+            peridotCount--;
+            $("#peridot-count").text(`uses left:${peridotCount}`);
+            console.log(score);
+            $("#score").text(score);
+            winchecker();
+         }
+      });
+      $("#lion").on("click", function(){
+         if(gameStart && lionCount > 0 && score > 0){
+            let gemValue = ($(this).attr("gem-value")); 
+            gemValue = parseInt(gemValue);
+            score -= gemValue;
+            if(score < 0){
+               score = 0;
+            };
+            lionCount--;
+            $("#lion-count").text(`uses left: ${lionCount}`);
+            console.log(`your score is${score}`);
+            $("#score").text(score);
+            winchecker();
+         };
+      });
+      $("#bismuth").on("click", function(){
+         if(bismuth){
+            score = numberToHit;
+            bismuth = false;
+            winchecker();
+         }
 
+      });
+      $("#space-pirates").on("click", function(){
+         if(spacePirates){
+            score = numberToHit;
+            spacePirates = false;
+            winchecker();
+         }
+
+      });
+
+      let winchecker = function(){
+         if(wins >= 10)
+         {
+            alert("You won the game!")
+
+         }
+         else if (losses >= 10 ){
+            alert("You lost the game!")
+         }
+         else if(score === numberToHit){
+            wins++;
+            $("#win").text(wins);
+            initailizeGame();
+         }
+         else if(score > numberToHit){
+            losses++;
+            $("#loss").text(losses);
+            initailizeGame();
+         };
+      };
+      
+   
+      $("#win").text(wins);
+      $("#loss").text(losses);
+
+      
+      // limit use of backup to 3 each
+      // asign big guns to apply the exact amount missing to score.
+      // limit big gun to 1 use each.
+      //
+      // on click select random number 
+      // look for win/ loss
+
+
+
+
+      // check for win/ loss
+      // if wins = 5 win game
+   });   
 });
    
 
