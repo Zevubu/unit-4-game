@@ -1,6 +1,13 @@
+
+
+
+
 body{
     background-color: pink;
+    font-family: 'Baloo Bhaina', cursive;
+    font-weight: bold;
 }
+
 
 #pearl, #amethist, #garnet, #lapis,#steven, #opponent, #space-pirates{
     /* width: 150px; */
@@ -16,4 +23,9 @@ body{
 #bismuth, #lion, #opponent-img{
     /* width: 187px; */
     width: 125px;
+}
+
+#game-discription{
+    
+
 }

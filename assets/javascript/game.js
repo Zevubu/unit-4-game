@@ -39,12 +39,8 @@ $(function(){
       let lapisCount = 2;
       let peridotCount = 2;
       let lionCount = 2;
-      let currentOpponent;
-      let opponentImgs = [];
-      let opponentName = [];
-      let opponentNum;
-      let opponentsUsed = [];
-      
+     
+      // call opponent text and area opponents them selves are call in the initializeGame function
       $("#random-num-area").prepend("<p>Watch out! Your fighting...")
       $("#opponent-score").prepend("<p>Your opponents score is...</p>");
       $("#opponent-score").append("<p>Match it to beat them!:</p>");
@@ -72,12 +68,29 @@ $(function(){
 
       let characterValueRandom;
       let characterValue=[];
-            
-   let opponentaddlist = function(){
-      if(opponentsUsed.indexOf(currentOpponent) > -1){
-         initailizeGame();
+
+      let currentOpponent;
+      let opponentImgs = [];
+      let opponentName = [];
+      let opponentNum;
+      let opponentsToUse = [];
+      let opponentCount = 0;
+
+      // creates random oponent that does not repeat.
+      for(let i = 0; i < 5; i++){
+         
+         opponentNum = Math.floor(Math.random()*5)
+
+         if(opponentsToUse.indexOf(opponentNum) > -1){
+            i--;
+            console.log("if check");
+         }
+         else{
+            opponentsToUse.push(opponentNum);
+            console.log (opponentsToUse);
+         }
+
       };
-   };
 
    let initailizeGame = function(){
          score = 0;
@@ -103,12 +116,11 @@ $(function(){
          ]
          opponentName =["Jasper!", "Emerald!", "Yellow Diamond!", "The Loch Ness Bloggster!","Aquamarine!"];
          
-         opponentNum = Math.floor(Math.random()*5);
-         currentOpponent = opponentName.opponentNum;
-         opponentaddlist();
+         currentOpponent = opponentsToUse[opponentCount];
          
-         $("#opponent-name").html(opponentName[opponentNum]);
-         $("#opponent-img-section").html(opponentImgs[opponentNum]);
+         
+         $("#opponent-name").html(opponentName[currentOpponent]);
+         $("#opponent-img-section").html(opponentImgs[currentOpponent]);
          
          // create random number 19-120
          numberToHit = Math.floor(Math.random() * 120) + 19;
@@ -135,30 +147,7 @@ $(function(){
       };
       initailizeGame();
 
-      
-
-
-
-      // pearlNum = characterValue[0];
-      // console.log(`pearl ${pearlNum}`);
-      // garnetNum = characterValue[1];
-      // console.log(`garnet is ${garnetNum}`);
-      // amethistNum = characterValue[2];
-      // console.log(`amethist is ${amethistNum}`);
-      // stevenNum = characterValue[3];
-      // console.log(` steven is ${stevenNum}`);
-      // lapisNum = characterValue[4];
-      // console.log(`lapis is ${lapisNum}`);
-      // peridotNum = characterValue[5];
-      // console.log(`peridot is ${peridotNum}`);
-      // lionNum = characterValue[6];
-      // console.log(`Lion is ${lionNum}`);
-
-   
-     
-      
-
-
+      // MY character on click functions
 
       $("#amethist").on("click", function(){
          if(gameStart){
@@ -270,23 +259,34 @@ $(function(){
       });
 
       let winchecker = function(){
-         if(wins >= 10)
+         if(wins === 5)
          {
             alert("You won the game!")
 
          }
-         else if (losses >= 10 ){
-            alert("You lost the game!")
+         else if (losses === 5 ){
+            alert("You lost the game! Refesh to start over")
          }
          else if(score === numberToHit){
-            opponentsUsed.push(currentOpponent);
             wins++;
+            if (opponentCount === 4){
+               opponentCount = 0
+            }
+            else{
+               opponentCount++
+            }
             $("#win").text(wins);
             initailizeGame();
          }
          else if(score > numberToHit){
-            opponentsUsed.push(currentOpponent);
             losses++;
+            if (opponentCount === 4){
+               opponentCount = 0
+            }
+            else{
+               opponentCount++
+            }
+            
             $("#loss").text(losses);
             initailizeGame();
          };
