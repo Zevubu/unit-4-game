@@ -1,15 +1,11 @@
-
-
-
-
 body{
     background-color: pink;
     font-family: 'Baloo Bhaina', cursive;
-    font-weight: bold;
+    font-weight: 200%;
 }
+ /* charecter dementions */
 
-
-#pearl, #amethist, #garnet, #lapis,#steven, #opponent, #space-pirates{
+#pearl, #amethist, #garnet, #lapis,#steven, #opponent{
     /* width: 150px; */
     width: 100px;
 
@@ -20,12 +16,57 @@ body{
     width: 75px;
 }
 
-#bismuth, #lion, #opponent-img{
+#bismuth, #opponent-img{
     /* width: 187px; */
     width: 125px;
 }
 
-#game-discription{
-    
-
+#lion, #space-pirates{
+    width: 200px;
 }
+
+/* Header spacing, font, and flexbox */
+#crystal-header{
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+#and-steven{
+    font-size: 40px;
+}
+#flexbox-header-outer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+#flexbox-header-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#opponent-flexbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+/* body and game spaceing and flexbox's */
+#flexbox-gems{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#flexbox-backup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#big-guns-imgs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+

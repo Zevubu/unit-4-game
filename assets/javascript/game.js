@@ -43,28 +43,36 @@ $(function(){
       // call opponent text and area opponents them selves are call in the initializeGame function
       $("#random-num-area").prepend("<p>Watch out! Your fighting...")
       $("#opponent-score").prepend("<p>Your opponents score is...</p>");
-      $("#opponent-score").append("<p>Match it to beat them!:</p>");
       $("#score-area").prepend("<p>Your total score is:</p>");
       $("#win-section").prepend("<p>Wins!</p>");
       $("#loss-section").prepend("<p>Losses!</p>");
       // call the gems.
       $("#crystal-gems").prepend("<p id='crystal-gems-header'>The Crystal Gems!</p>");
-      $("#crystal-gems-imgs").append("<img id='amethist' src = 'assets/imges/amethist.png'  alt='amethist'>");
-      $("#crystal-gems-imgs").append("<img id='pearl' src = 'assets/imges/pearl.png' alt='pearl'>");
-      $("#crystal-gems-imgs").append("<img id='garnet' src = 'assets/imges/garnet.png'  alt='garnet'>");
-      $("#crystal-gems-imgs").append("<img id='steven' src = 'assets/imges/Steven.png' alt='Steven'>");
+      $("#amethist-section").append("<img id='amethist' src = 'assets/imges/amethist.png'  alt='amethist'>");
+      $("#amethist-section").append("<p>Amethist</p>");
+      $("#pearl-section").append("<img id='pearl' src = 'assets/imges/pearl.png' alt='pearl'>");
+      $("#pearl-section").append("<p>Pearl</p>");
+      $("#garnet-section").append("<img id='garnet' src = 'assets/imges/garnet.png'  alt='garnet'>");
+      $("#garnet-section").append("<p>Garnet</p>");
+      $("#steven-section").append("<img id='steven' src = 'assets/imges/Steven.png' alt='Steven'>");
+      $("#steven-section").append("<p>Steven</p>");
       //call back up
       $("#backup-text").append("<p id='backup-header'>Call for back up!</p>");
       $("#backup-text").append("<p>These gems will delete a random number from you total score.</p>");
       $("#backup-text").append(" <p>Watch out though they can only be used 2 times per round.</p>");
+      $("#peridot-section").prepend("<p>Peridot</p>");
       $("#peridot-section").prepend("<img id='peridot' src = 'assets/imges/Peridot.png' alt='Peridot'>");
+      $("#lapis-section").prepend("<p>Lapis</p>");
       $("#lapis-section").prepend("<img id='lapis' src = 'assets/imges/lapis.png'  alt='lapis'>");
+      $("#lion-section").prepend("<p>Lion</p>");
       $("#lion-section").prepend("<img id='lion' src = 'assets/imges/Lion.png'  alt='lion'>");
       // call big guns
       $("#big-guns-text").append("<p id='big-guns-header'>You big guns!</p>");
       $("#big-guns-text").append("<p>Take your opponent out with one strike! Each can only be used once for the whole game.</p>");
-      $("#big-guns-imgs").append("<img id='bismuth' src = 'assets/imges/Bismuth.png' alt='Bismuth'>");
-      $("#big-guns-imgs").append("<img id='space-pirates' src = 'assets/imges/lars-and-crew.png' alt='Space Pirates!'>");
+      $("#bismuth-section").append("<img id='bismuth' src = 'assets/imges/Bismuth.png' alt='Bismuth'>");
+      $("#bismuth-section").append("<p>Bismuth</p>");
+      $("#off-colors").append("<img id='space-pirates' src='assets/imges/Off_Colors.png' alt='Space Pirates!'>");
+      $("#off-colors").append("<p>The Off Colors!</p>");
 
       let characterValueRandom;
       let characterValue=[];
@@ -126,7 +134,7 @@ $(function(){
          numberToHit = Math.floor(Math.random() * 120) + 19;
          console.log(`Number to hit is:${numberToHit}`);
          $("#random-num").text(numberToHit);
-      //   if gems-onscreen = false add images and turn gems-onscreen to true
+         //   if gems-onscreen = false add images and turn gems-onscreen to true
 
 
          // asign random number to crystal gems 1-12
@@ -183,6 +191,7 @@ $(function(){
          }
          
       });
+
       $("#steven").on("click", function(){
          if(gameStart){
             let gemValue = ($(this).attr("gem-value")); 
