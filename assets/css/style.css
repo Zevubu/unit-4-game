@@ -2,6 +2,8 @@ body{
     background-color: pink;
     font-family: 'Baloo Bhaina', cursive;
     font-weight: 200%;
+    text-align: center;
+    color: black;
 }
  /* charecter dementions */
 
@@ -16,9 +18,13 @@ body{
     width: 75px;
 }
 
-#bismuth, #opponent-img{
+#bismuth{
     /* width: 187px; */
     width: 125px;
+}
+
+#opponent-img{
+    width:200px;
 }
 
 #lion, #space-pirates{
@@ -26,6 +32,15 @@ body{
 }
 
 /* Header spacing, font, and flexbox */
+header{
+    background-color: rgb(179, 193, 236);
+    display: flex;
+    justify-content: center
+}
+#steven-universe-header-img{
+    width: 400px;
+    margin: 5% auto;
+}
 #crystal-header{
     font-size: 50px;
     font-weight: bolder;
@@ -40,33 +55,96 @@ body{
     justify-content: center;
 }
 
-
 #flexbox-header-inner{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
+}
+#game-discription{
+    margin: 2% auto;
+}
+#start-section{
+    display: flex;
+    justify-content: center;
+}
+#start-section{
+    padding: 2%;
+    margin: 2% auto;
+    background-color: rgb(137, 212, 212);
+}
+
+
+
+
+
+/* body and game spaceing and flexbox's */
+#body-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#steven-universe-body-img{
+    width: 400px;
+    height: auto;
+}
+#steven-icon-area{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
 }
 #opponent-flexbox{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
+}
+#random-num-area,  {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+
 }
 
-/* body and game spaceing and flexbox's */
+#opponent-name{
+    text-align: center;
+}
+#opponent-score, #random-num, #score-area, #score{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    text-align: center;
+    margin: 2% auto;  
+}
+
+#w-l-area{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    padding: 5%;
+}
+
+#all-gems-flexbox{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly; 
+    margin: 5% auto;
+}
+
+
 #flexbox-gems{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
 }
 #flexbox-backup{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: flex-end;
 }
-#big-guns-imgs{
+#big-guns{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
 }
 
 

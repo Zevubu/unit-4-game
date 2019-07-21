@@ -31,6 +31,7 @@ $(function(){
        
    $("#start").on("click", function(){
       $("#game-discription").hide();
+      $("header").hide();
       gemsOnscreen = true
       gameStart = true;
       bismuth = true;
@@ -41,7 +42,9 @@ $(function(){
       let lionCount = 2;
      
       // call opponent text and area opponents them selves are call in the initializeGame function
-      $("#random-num-area").prepend("<p>Watch out! Your fighting...")
+      $("#body-flex").prepend("<section id='steven-icon-area'></section>");
+      $("#steven-icon-area").html("<img id='steven-universe-body-img' src = 'assets/imges/stevenuniverseheader.png'  alt='Steven Universe'>")
+      $("#op-name-text").prepend("<p>Watch out! Your fighting...")
       $("#opponent-score").prepend("<p>Your opponents score is...</p>");
       $("#score-area").prepend("<p>Your total score is:</p>");
       $("#win-section").prepend("<p>Wins!</p>");
@@ -58,8 +61,8 @@ $(function(){
       $("#steven-section").append("<p>Steven</p>");
       //call back up
       $("#backup-text").append("<p id='backup-header'>Call for back up!</p>");
-      $("#backup-text").append("<p>These gems will delete a random number from you total score.</p>");
-      $("#backup-text").append(" <p>Watch out though they can only be used 2 times per round.</p>");
+      $("#backup-text").append("<p>Delete from you're total score.</p>");
+      $("#backup-text").append(" <p>Can be used 2 per round.</p>");
       $("#peridot-section").prepend("<p>Peridot</p>");
       $("#peridot-section").prepend("<img id='peridot' src = 'assets/imges/Peridot.png' alt='Peridot'>");
       $("#lapis-section").prepend("<p>Lapis</p>");
@@ -68,7 +71,8 @@ $(function(){
       $("#lion-section").prepend("<img id='lion' src = 'assets/imges/Lion.png'  alt='lion'>");
       // call big guns
       $("#big-guns-text").append("<p id='big-guns-header'>You big guns!</p>");
-      $("#big-guns-text").append("<p>Take your opponent out with one strike! Each can only be used once for the whole game.</p>");
+      $("#big-guns-text").append("<p>Take out opponent with a single strike!</p>");
+      $("#big-guns-text").append("<p>Can only be used once pergame.</p>");
       $("#bismuth-section").append("<img id='bismuth' src = 'assets/imges/Bismuth.png' alt='Bismuth'>");
       $("#bismuth-section").append("<p>Bismuth</p>");
       $("#off-colors").append("<img id='space-pirates' src='assets/imges/Off_Colors.png' alt='Space Pirates!'>");
@@ -99,6 +103,22 @@ $(function(){
          }
 
       };
+      function moveLion(){
+            var h = $(window).height() - 50;
+            var w = $(window).width() - 50;
+            
+            var nh = Math.floor(Math.random() * h);
+            var nw = Math.floor(Math.random() * w);
+            $( "#lion" ).animate({             
+               top: nh,
+               left:nw,
+            }, 1000, function() {
+               // Animation complete.
+            });
+      
+            // Get viewport dimensions (remove the dimension of the div)
+            
+         };
 
    let initailizeGame = function(){
          score = 0;
@@ -107,6 +127,7 @@ $(function(){
          lapisCount = 2;
          peridotCount = 2;
          lionCount = 2
+         moveLion();
 
          $("#peridot-count").text(`uses left:${peridotCount}`);
          $("#lapis-count").text(`uses left:${lapisCount}`);
@@ -156,6 +177,10 @@ $(function(){
       initailizeGame();
 
       // MY character on click functions
+    
+         
+     
+
 
       $("#amethist").on("click", function(){
          if(gameStart){
@@ -164,6 +189,7 @@ $(function(){
             score += gemValue;
             console.log(score);
             $("#score").text(score);
+            moveLion();
             winchecker();
          }
       });
@@ -176,6 +202,7 @@ $(function(){
             score += gemValue;
             console.log(score);
             $("#score").text(score);
+            moveLion();
             winchecker();
          }
          
@@ -187,6 +214,7 @@ $(function(){
             score += gemValue;
             console.log(score);
             $("#score").text(score);
+            moveLion();
             winchecker();
          }
          
@@ -199,6 +227,7 @@ $(function(){
             score += gemValue;
             console.log(score);
             $("#score").text(score);
+            moveLion();
             winchecker();
          }
          
@@ -210,6 +239,7 @@ $(function(){
             let gemValue = ($(this).attr("gem-value")); 
             gemValue = parseInt(gemValue);
             score -= gemValue;
+            moveLion();
             if(score < 0){
                score = 0;
             };
@@ -225,6 +255,7 @@ $(function(){
             let gemValue = ($(this).attr("gem-value")); 
             gemValue = parseInt(gemValue);
             score -= gemValue;
+            moveLion();
             if(score < 0){
                score = 0;
             };
@@ -237,6 +268,7 @@ $(function(){
       });
       $("#lion").on("click", function(){
          if(gameStart && lionCount > 0 && score > 0){
+            moveLion()
             let gemValue = ($(this).attr("gem-value")); 
             gemValue = parseInt(gemValue);
             score -= gemValue;
@@ -254,6 +286,7 @@ $(function(){
          if(bismuth){
             score = numberToHit;
             bismuth = false;
+            moveLion();
             winchecker();
          }
 
@@ -262,6 +295,7 @@ $(function(){
          if(spacePirates){
             score = numberToHit;
             spacePirates = false;
+            moveLion();
             winchecker();
          }
 
